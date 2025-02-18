@@ -7,6 +7,9 @@ import ImageGallery from "./components/ImageGallery/ImageGallery"
 import Loader from "./components/Loader/Loader"
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage"
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn"
+import ImageModal from "./components/ImageModal/ImageModal"
+import Modal from "react-modal";
+
 
 function App() {
   
@@ -16,6 +19,14 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [images, setImages] = useState([]);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    Modal.setAppElement("#root");
+  }, []);
+  
+  
   useEffect(() => {
     async function fetchPictures(request, page) {
       try {
@@ -51,7 +62,6 @@ function App() {
         }
       } catch (error) {
         console.log(error);
-        
         setError(true);
       } finally {
         setLoading(false);
@@ -62,19 +72,34 @@ function App() {
       fetchPictures(request, page);
     }
   }, [request, page]);
-  const loadMore = () =>{setPage(prev => prev + 1)}
+
   
+
+  
+
+  function openModal(image) {
+    setSelectedImage(image);
+    setIsOpen(true);    
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+    setSelectedImage(null);
+  }
+
   const handleSetRequest = newRequest => {
     setRequest(newRequest)
   };
   
+  const loadMore = () => { setPage(prev => prev + 1) }
+
   return (
     <>
       <SearchBar
         handleSetRequest={handleSetRequest}
       />
       {error && <ErrorMessage />}
-      <ImageGallery images={images} />
+      <ImageGallery images={images} openModal={openModal}/>
       {images.length > 0 && !error && !loading && page < pageLimit && (
         <LoadMoreBtn loadMore={loadMore} />
       )}
@@ -83,6 +108,13 @@ function App() {
           <Loader
             loading={loading}
           />
+          {modalIsOpen && (
+            <ImageModal
+              isOpen={modalIsOpen}
+              closeModal={closeModal}
+              selectedImage={selectedImage}
+            />
+          )}
         </div>
       )}
 

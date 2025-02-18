@@ -1,12 +1,12 @@
 import React from 'react'
 
-const ImageCard = ({image}) => {
+const ImageCard = ({image, openModal}) => {
   return (
       <div>
       <img
         src={image.urls.small}
         alt={image.alt_description || "This image has no description"}
-        onClick={() => onClick(image)}
+        onClick={() => openModal(image)}
       />
       </div>
   )
