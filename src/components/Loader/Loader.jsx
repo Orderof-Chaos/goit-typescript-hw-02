@@ -1,7 +1,11 @@
-
-const Loader = () => {
+import ClipLoader from "react-spinners/ClipLoader";
+const Loader = ({loading}) => {
   return (
-   <div>Loading</div>
+    <ClipLoader
+        color='#FF00FF'
+        loading={loading}
+        size={150}
+      />
       
   )
 }

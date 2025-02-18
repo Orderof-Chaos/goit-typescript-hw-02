@@ -1,7 +1,7 @@
 import { useState } from "react"
 import toast from "react-hot-toast";
 
-const SearchBar = ({ }) => {
+const SearchBar = ({handleSetRequest}) => {
   const [value, setValue] = useState('')
   const handleSubmit = e => {
     e.preventDefault();
@@ -12,6 +12,7 @@ const SearchBar = ({ }) => {
       });
       return
     }
+    handleSetRequest(value)
   }
     
     return (

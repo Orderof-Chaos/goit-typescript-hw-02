@@ -1,15 +1,17 @@
 import React from 'react'
 import ImageCard from '../ImageCard/ImageCard'
-const ImageGallery = () => {
+const ImageGallery = ({images}) => {
   
     return (
         <ul>
-            {/* Набір елементів списку із зображеннями */}
-            <li>
-                <ImageCard/>
-            </li>
+            
+            {images.map(image =>
+                <li key={image.id}>
+                <ImageCard
+                image={image}/>
+            </li>)}
+
         </ul>
     )
 }
-
 export default ImageGallery

@@ -1,9 +1,13 @@
 import React from 'react'
 
-const ImageCard = () => {
+const ImageCard = ({image}) => {
   return (
       <div>
-          <img src="photo" alt="" />
+      <img
+        src={image.urls.small}
+        alt={image.alt_description || "This image has no description"}
+        onClick={() => onClick(image)}
+      />
       </div>
   )
 }
