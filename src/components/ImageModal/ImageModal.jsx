@@ -31,7 +31,7 @@ const ImageModal = ({ isOpen, closeModal, selectedImage }) => {
                   className={s.modalImage}
                   src={selectedImage.urls.regular}
                   alt={selectedImage.alt_description}
-                  style={{ width: "90%", height: "90%" }}
+                  style={{ width: "100%", height: "100%", maxHeight: "77vh"}}
               />
               <button onClick={closeModal} className={s.modalBtn}>Close</button>
           </div>
