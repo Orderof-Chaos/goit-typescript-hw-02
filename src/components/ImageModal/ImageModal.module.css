@@ -1,31 +1,30 @@
 .modal {
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
-.title {
-  font-size: 24px;
-  margin-bottom: 24px;
-}
-
-.modalImage {
-  object-fit: cover;
+.description {
+  font-size: 36px;
+  margin-bottom: 12px;
+  font-weight: 800;
 }
 
 .modalBtn {
-  width: 98px;
-  font-size: 16px;
-  padding: 4px;
-  background-color: #e6ee5c;
+  width: 128px;
+  font-size: 24px;
+  padding: 2px;
+  background-color: #ca4ce470;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   margin-top: 24px;
-  transition: background-color 300ms ease-in-out, font-weight 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
 }
 
 .modalBtn:hover,
 .modalBtn:focus {
-  background-color: #71de8c;
-  font-weight: 600;
+  background-color: #8962e4;
+  color: white;
 }

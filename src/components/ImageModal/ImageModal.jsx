@@ -23,16 +23,17 @@ const ImageModal = ({ isOpen, closeModal, selectedImage }) => {
           style={customStyles}
           overlayClassName="Overlay"
       >
-          <div>
-              <h2>
+          <div className={s.modal}>
+              <h2 className={s.description}>
                   {selectedImage.alt_description || "Image"}
               </h2>
               <img
+                  className={s.modalImage}
                   src={selectedImage.urls.regular}
                   alt={selectedImage.alt_description}
-                  style={{ width: "100%", height: "100%" }}
+                  style={{ width: "90%", height: "90%" }}
               />
-              <button onClick={closeModal}>Close</button>
+              <button onClick={closeModal} className={s.modalBtn}>Close</button>
           </div>
       </Modal>
   )

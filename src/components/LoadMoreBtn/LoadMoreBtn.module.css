@@ -1,0 +1,16 @@
+.loadMoreBtn {
+  width: 156px;
+  font-size: 28px;
+  padding: 2px;
+  background-color: #ca4ce470;
+  border: none;
+  border-radius: 6px;
+  margin-top: 24px;
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
+  background-color: #8962e4;
+  color: white;
+}

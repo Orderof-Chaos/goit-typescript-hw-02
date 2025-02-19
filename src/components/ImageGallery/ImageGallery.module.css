@@ -1,0 +1,9 @@
+.gallery {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.galleryCard {
+  max-width: calc((100% - 48px) / 3);
+}

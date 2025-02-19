@@ -43,7 +43,7 @@ function App() {
             },
           }
         );
-        if (page === 1) {
+        if (page == 1) {
           setImages(res.data.results);
         } else {
           setImages((prevImages) => [
@@ -61,7 +61,6 @@ function App() {
           });
         }
       } catch (error) {
-        console.log(error);
         setError(true);
       } finally {
         setLoading(false);
@@ -72,19 +71,18 @@ function App() {
       fetchPictures(request, page);
     }
   }, [request, page]);
-
-  
-
   
 
   function openModal(image) {
     setSelectedImage(image);
-    setIsOpen(true);    
+    setIsOpen(true);
   }
 
   function closeModal() {
     setIsOpen(false);
     setSelectedImage(null);
+    
+    
   }
 
   const handleSetRequest = newRequest => {
@@ -94,7 +92,7 @@ function App() {
   const loadMore = () => { setPage(prev => prev + 1) }
 
   return (
-    <>
+    <div>
       <SearchBar
         handleSetRequest={handleSetRequest}
       />
@@ -104,22 +102,22 @@ function App() {
         <LoadMoreBtn loadMore={loadMore} />
       )}
       {loading && (
-        <div >
+        <div>
           <Loader
             loading={loading}
           />
-          {modalIsOpen && (
+          
+        </div>
+      )}
+{modalIsOpen && (
             <ImageModal
               isOpen={modalIsOpen}
               closeModal={closeModal}
               selectedImage={selectedImage}
             />
           )}
-        </div>
-      )}
-
       <Toaster />
-    </>
+    </div>
   )
 }
 

@@ -1,8 +1,8 @@
-import React from 'react'
+import s from "./LoadMoreBtn.module.css"
 
 const LoadMoreBtn = ({loadMore}) => {
   return (
-    <button onClick={loadMore}>LoadMoreBtn</button>
+    <button onClick={loadMore} className={s.loadMoreBtn}>Load More</button>
   )
 }
 

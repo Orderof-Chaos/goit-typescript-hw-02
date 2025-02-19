@@ -1,12 +1,12 @@
-import React from 'react'
+import s from "./ImageGallery.module.css"
 import ImageCard from '../ImageCard/ImageCard'
 const ImageGallery = ({images, openModal}) => {
   
     return (
-        <ul>
+        <ul className={s.gallery}>
             
             {images.map(image =>
-                <li key={image.id}>
+                <li key={image.id} className={s.galleryCard}>
                     <ImageCard
                         image={image}
                         openModal={openModal}
