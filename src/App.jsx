@@ -87,6 +87,7 @@ function App() {
 
   const handleSetRequest = newRequest => {
     setRequest(newRequest)
+    setPage(1)
   };
   
   const loadMore = () => { setPage(prev => prev + 1) }
