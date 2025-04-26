@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from 'react'
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
@@ -9,18 +10,19 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage"
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn"
 import ImageModal from "./components/ImageModal/ImageModal"
 import Modal from "react-modal";
+import {respPhoto} from './components/Types/types';
 
 
-function App() {
+const App: React.FC = () => {
   
   const [request, setRequest] = useState("");
   const [page, setPage] = useState(1);
   const [pageLimit, setPageLimit] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<respPhoto[]>([]);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<respPhoto|null>(null);
 
   useEffect(() => {
     Modal.setAppElement("#root");
@@ -28,7 +30,7 @@ function App() {
   
   
   useEffect(() => {
-    async function fetchPictures(request, page) {
+    async function fetchPictures(request: string, page: number) {
       try {
         setError(false);
         setLoading(true);
@@ -73,7 +75,7 @@ function App() {
   }, [request, page]);
   
 
-  function openModal(image) {
+  function openModal(image: any) {
     setSelectedImage(image);
     setIsOpen(true);
   }
@@ -85,7 +87,7 @@ function App() {
     
   }
 
-  const handleSetRequest = newRequest => {
+  const handleSetRequest = (newRequest: string) => {
     setRequest(newRequest)
     setPage(1)
   };

@@ -1,5 +1,10 @@
 import ClipLoader from "react-spinners/ClipLoader";
-const Loader = ({loading}) => {
+
+type Props = {
+  loading: boolean
+}
+
+const Loader = ({loading}: Props) => {
   return (
     <ClipLoader
         color='#FF00FF'

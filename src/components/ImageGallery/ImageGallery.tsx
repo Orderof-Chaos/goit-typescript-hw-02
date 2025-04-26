@@ -1,7 +1,18 @@
 import s from "./ImageGallery.module.css"
 import ImageCard from '../ImageCard/ImageCard'
-const ImageGallery = ({images, openModal}) => {
+import {Image} from '../Types/types'
+
+
+type Props = {
+    images: Image[];
+    openModal: (image: any) => void
+}
+
+
+const ImageGallery = ({images, openModal}: Props) => {
   
+
+    
     return (
         <ul className={s.gallery}>
             

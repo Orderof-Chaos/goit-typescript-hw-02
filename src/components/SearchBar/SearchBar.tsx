@@ -1,10 +1,15 @@
 import { useState } from "react"
 import toast from "react-hot-toast"
 import s from "./SearchBar.module.css"
+import { FormEvent } from "react";
 
-const SearchBar = ({handleSetRequest}) => {
+type Props = {
+  handleSetRequest: (newRequest: string) => void 
+}
+
+const SearchBar = ({handleSetRequest}:Props) => {
   const [value, setValue] = useState('')
-  const handleSubmit = e => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!value) {
       toast.error("Enter parameters for search!", {
