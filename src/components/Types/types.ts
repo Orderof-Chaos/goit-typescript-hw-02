@@ -1,8 +1,8 @@
-// export type fetchRes = {
-//     total: number;
-//   total_pages: number;
-//   results: respPhoto[];
-// }
+export type respData = {
+  total: number;
+  total_pages: number;
+  results: respPhoto[];
+}
 
 export type respPhoto = {
   id: string;
@@ -21,6 +21,7 @@ export type respPhoto = {
   };
 };
 
+
 export type  Image = {
   id: string;
   alt_description?: string;
@@ -29,10 +30,3 @@ export type  Image = {
     regular: string;
   };
 };
-
-// export type reqParams = {
-//     client_id: string;
-//     page: number;
-//     per_page: number;
-//     query: string;
-// };

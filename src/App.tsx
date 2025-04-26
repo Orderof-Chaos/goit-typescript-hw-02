@@ -10,7 +10,7 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage"
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn"
 import ImageModal from "./components/ImageModal/ImageModal"
 import Modal from "react-modal";
-import {respPhoto} from './components/Types/types';
+import {respPhoto, respData} from './components/Types/types';
 
 
 const App: React.FC = () => {
@@ -34,7 +34,7 @@ const App: React.FC = () => {
       try {
         setError(false);
         setLoading(true);
-        const res = await axios.get(
+        const res = await axios.get<respData>(
           "https://api.unsplash.com/search/photos",
           {
             params: {
