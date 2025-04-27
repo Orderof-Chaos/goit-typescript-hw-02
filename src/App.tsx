@@ -75,7 +75,7 @@ const App: React.FC = () => {
   }, [request, page]);
   
 
-  function openModal(image: any) {
+  function openModal(image: respPhoto) {
     setSelectedImage(image);
     setIsOpen(true);
   }

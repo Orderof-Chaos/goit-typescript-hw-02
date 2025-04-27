@@ -1,9 +1,9 @@
 import s from "./ImageCard.module.css"
-import { Image } from '../Types/types'
+import { respPhoto } from '../Types/types'
 
 type Props = {
-    image: Image;
-    openModal: (image: any) => void
+    image: respPhoto;
+    openModal: (image: respPhoto) => void
 }
 
 const ImageCard = ({image, openModal}: Props) => {

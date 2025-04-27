@@ -1,11 +1,11 @@
 import Modal from 'react-modal';
 import s from './ImageModal.module.css';
-import {Image} from '../Types/types'
+import {respPhoto} from '../Types/types'
 
 type Props = {
     isOpen: boolean;
     closeModal: () => void;
-    selectedImage: Image|null
+    selectedImage: respPhoto|null
  }
 
 const ImageModal = ({ isOpen, closeModal, selectedImage }: Props) => {

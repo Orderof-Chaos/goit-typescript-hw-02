@@ -1,11 +1,11 @@
 import s from "./ImageGallery.module.css"
 import ImageCard from '../ImageCard/ImageCard'
-import {Image} from '../Types/types'
+import {respPhoto} from '../Types/types'
 
 
 type Props = {
-    images: Image[];
-    openModal: (image: any) => void
+    images: respPhoto[];
+    openModal: (image: respPhoto) => void
 }
 
 
